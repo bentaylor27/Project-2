@@ -43,6 +43,11 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
+//CONTROLLERS
+const toDoController = require('./controllers/routes_controller.js')
+app.use('/', toDoController)
+
+
 
 //___________________
 // Routes
@@ -56,5 +61,3 @@ app.get('/' , (req, res) => {
 //Listener
 //___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
-
-// heroku app name: damp-depths-85917
