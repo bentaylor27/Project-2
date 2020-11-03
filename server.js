@@ -45,8 +45,8 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 //CONTROLLERS
 const toDoController = require('./controllers/routes_controller.js')
-// app.use('/todo', toDoController)
-app.use(express.static(__dirname + '/../index.ejs'));
+app.use('/todo', toDoController)
+// app.use(express.static(__dirname + '/../index.ejs'));
 
 
 
@@ -55,7 +55,7 @@ app.use(express.static(__dirname + '/../index.ejs'));
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.redirect('./views/pages/index.ejs')
+  res.redirect('/lists')
 });
 
 //___________________
