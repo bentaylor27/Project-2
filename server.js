@@ -12,6 +12,9 @@ const db = mongoose.connection;
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3000;
 
+//render HTML on page
+app.set('view engine', 'ejs')
+
 //___________________
 //Database
 //___________________
@@ -55,7 +58,8 @@ app.use('/todo', toDoController)
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.redirect('/lists')
+    //res.redirect('/lists') //need to configure controller
+    res.render('pages/index')
 });
 
 //___________________
