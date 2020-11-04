@@ -1,13 +1,18 @@
 //DEPENCIES
 const express = require('express');
-const app = express();
+const router = express.Router();
+// const app = express(); //is this needed?
+
 const toDo = require('../models/todo.js');
-const lists = express.Router();
+
+router.get('/', (req, res) => {
+    res.send('in articles') //to demonstrate that router is functioning, (localhost:3000/todo will result in this text)
+})
 
 
 ////ROUTES\\\\
 //INDEX
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     toDo.find({}, (error, allLists) => {
         res.render('pages/index.ejs', {
             lists: allLists,
@@ -17,7 +22,7 @@ app.get('/', (req, res) => {
 })
 
 //NEW
-app.get('/new', (req, res) => {
+router.get('/new', (req, res) => {
     res.render('todo/new.ejs', 
         {currentUser: req.session.currentUser}
     )
@@ -33,4 +38,4 @@ app.get('/new', (req, res) => {
 
 //DELETE
 
-module.exports = lists
+module.exports = router

@@ -2,10 +2,10 @@
 //Dependencies
 //___________________
 const express = require('express');
-const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express();
 const db = mongoose.connection;
+const methodOverride  = require('method-override');
 //___________________
 //Port
 //___________________
@@ -47,9 +47,9 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 //CONTROLLERS
-const toDoController = require('./controllers/routes_controller.js')
+const toDoController = require('./controllers/routes.js')
 app.use('/todo', toDoController)
-// app.use(express.static(__dirname + '/../index.ejs'));
+
 
 
 
@@ -58,8 +58,11 @@ app.use('/todo', toDoController)
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-    //res.redirect('/lists') //need to configure controller
-    res.render('pages/index')
+    const pages = [{
+        title: 'Test list',
+        createdAt: new Date(),
+    }]
+    res.render('pages/index', { pages: pages })
 });
 
 //___________________
