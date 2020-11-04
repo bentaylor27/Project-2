@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Index</title>
+    <% let toDo; %>
 </head>
 <body>
     <div class="container">
@@ -15,16 +16,14 @@
             <button>Login</button>
         </nav>
         <ul>To-Do Lists
-            <% for (let list of lists) { %>
+            <% for (let toDo of pages) { %>
                 <li>
                     <a href="/models/todo.js">
-                        <%=toDo.task %>
+                        <%= toDo.task %>
                 </li>
             <% } %>
         </ul>
-        <footer style="background-color: red;">
-            <button>Back to Index</button>
-        </footer>
+        <footer style="background-color: red;">Created 2020 by Ben Taylor</footer>
     </div>
 </body>
 </html>

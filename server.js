@@ -6,6 +6,7 @@ const mongoose = require ('mongoose');
 const app = express();
 const db = mongoose.connection;
 const methodOverride  = require('method-override');
+
 //___________________
 //Port
 //___________________
@@ -52,7 +53,6 @@ app.use('/todo', toDoController)
 
 
 
-
 //___________________
 // Routes
 //___________________
@@ -64,6 +64,7 @@ app.get('/' , (req, res) => {
     }]
     res.render('pages/index', { pages: pages })
 });
+
 
 //___________________
 //Listener
