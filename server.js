@@ -61,21 +61,6 @@ app.get('/', (req, res) => {
     res.redirect('/todo')
 })
 
-// app.get('/' , (req, res) => {
-//     const pages = [{
-//         title: 'Test list',
-//         createdAt: Date.now(),
-//         task: 'Test task',
-//         completed: 'Yes',
-//     }]
-//     res.render('pages/index', { pages: pages })
-// });
-
-// app.get('/new', (req, res) => {
-//     res.render('/views/pages/new.ejs')
-//     // {pages: new page()})
-// })
-
 
 //___________________
 //Listener

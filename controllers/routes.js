@@ -24,7 +24,7 @@ router.get('/' , async (req, res) => {
 
 //NEW
 router.get('/new', async (req, res) => {
-    res.render('/views/pages/new.ejs',
+    res.render('../views/pages/new.ejs',
     {pages: new page()})
 })
 
