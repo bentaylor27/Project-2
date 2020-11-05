@@ -23,8 +23,8 @@ router.get('/', (req, res) => {
 
 //NEW
 router.get('/new', (req, res) => {
-    res.render('todo/new.ejs', 
-        {currentUser: req.session.currentUser}
+    res.render('pages/new.ejs', 
+        { pages: new Page() }
     )
 })
 

@@ -51,6 +51,8 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 const toDoController = require('./controllers/routes.js')
 app.use('/todo', toDoController)
 
+const newController = require('./controllers/routes.js')
+app.use('/new', newController)
 
 
 //___________________
@@ -66,6 +68,11 @@ app.get('/' , (req, res) => {
     }]
     res.render('pages/index', { pages: pages })
 });
+
+app.get('/new', (req, res) => {
+    res.render('/views/pages/new.ejs',
+    {pages: new page()})
+})
 
 
 //___________________

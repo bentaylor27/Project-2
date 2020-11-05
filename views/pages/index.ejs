@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Index</title>
-    <% let toDo; %>
+    <title>To-Do App</title>
 </head>
 <body>
     <div class="container">
         <h1>Ben's To-Do App</h1>
-        <a style="background-color: red;" href="/views/pages/new.ejs">Create a New List</a>
+        <a style="background-color: red;" href="/pages/new">Create a New List</a>
         <ul style="font-weight: bold;">To-Do Lists
             <% for (let toDo of pages) { %>
                 <li>
                     <a href="/models/todo.js">
                         <%= toDo.title %>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button type="button" name="Edit">Edit</button>
+                    <button type="button" name="Delete">Delete</button>
                 </li>
             <% } %>
         </ul>
