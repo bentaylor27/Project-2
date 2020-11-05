@@ -3,6 +3,7 @@
 //___________________
 const express = require('express');
 const mongoose = require ('mongoose');
+const routes = require('./controllers/routes')
 const app = express();
 const db = mongoose.connection;
 const methodOverride  = require('method-override');
@@ -56,20 +57,24 @@ app.use('/todo', toDoController)
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-    const pages = [{
-        title: 'Test list',
-        createdAt: Date.now(),
-        task: 'Test task',
-        completed: 'Yes',
-    }]
-    res.render('pages/index', { pages: pages })
-});
-
-app.get('/new', (req, res) => {
-    res.render('/views/pages/new.ejs')
-    // {pages: new page()})
+app.get('/', (req, res) => {
+    res.redirect('/todo')
 })
+
+// app.get('/' , (req, res) => {
+//     const pages = [{
+//         title: 'Test list',
+//         createdAt: Date.now(),
+//         task: 'Test task',
+//         completed: 'Yes',
+//     }]
+//     res.render('pages/index', { pages: pages })
+// });
+
+// app.get('/new', (req, res) => {
+//     res.render('/views/pages/new.ejs')
+//     // {pages: new page()})
+// })
 
 
 //___________________
