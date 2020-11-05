@@ -60,7 +60,9 @@ app.use('/todo', toDoController)
 app.get('/' , (req, res) => {
     const pages = [{
         title: 'Test list',
-        createdAt: new Date(),
+        createdAt: Date.now(),
+        task: 'Test task',
+        completed: 'Yes',
     }]
     res.render('pages/index', { pages: pages })
 });

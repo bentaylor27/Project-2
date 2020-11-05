@@ -10,16 +10,14 @@
 <body>
     <div class="container">
         <h1>Ben's To-Do App</h1>
-        <nav style="background-color: red;">
-            <a href="/views/pages/new.ejs">Create a New List</a>
-            <button>Sign Up</button>
-            <button>Login</button>
-        </nav>
-        <ul>To-Do Lists
+        <a style="background-color: red;" href="/views/pages/new.ejs">Create a New List</a>
+        <ul style="font-weight: bold;">To-Do Lists
             <% for (let toDo of pages) { %>
                 <li>
                     <a href="/models/todo.js">
-                        <%= toDo.task %>
+                        <%= toDo.title %>
+                    <button>Edit</button>
+                    <button>Delete</button>
                 </li>
             <% } %>
         </ul>
