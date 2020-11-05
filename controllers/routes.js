@@ -12,20 +12,20 @@ router.get('/', (req, res) => {
 
 ////ROUTES\\\\
 //INDEX
-router.get('/', (req, res) => {
-    toDo.find({}, (error, allLists) => {
-        res.render('pages/index.ejs', {
-            lists: allLists,
-            currentUser: req.session.currentUser
-        })
-    })
-})
+router.get('/' , (req, res) => {
+    const pages = [{
+        title: 'Test list',
+        createdAt: Date.now(),
+        task: 'Test task',
+        completed: 'Yes',
+    }]
+    res.render('pages/index', { pages: pages })
+});
 
 //NEW
 router.get('/new', (req, res) => {
-    res.render('pages/new.ejs', 
-        { pages: new Page() }
-    )
+    res.render('/views/pages/new.ejs',
+    {pages: new page()})
 })
 
 //CREATE
