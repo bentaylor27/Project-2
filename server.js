@@ -24,7 +24,7 @@ app.set('view engine', 'ejs')
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ 'project_two_db';
 
 // Connect to Mongo
-mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
+mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useUnifiedTopology: true});
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));

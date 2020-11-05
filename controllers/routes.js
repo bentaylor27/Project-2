@@ -1,6 +1,7 @@
 //DEPENCIES
 const express = require('express');
 const ToDo = require('../models/todo.js'); //new
+const toDo = require('../models/todo.js');
 const router = express.Router();
 // const app = express(); //is this needed?
 
@@ -24,8 +25,8 @@ router.get('/' , async (req, res) => {
 
 //NEW
 router.get('/new', async (req, res) => {
-    res.render('../views/pages/new.ejs',
-    {pages: new page()})
+    res.render('./pages/new.ejs',
+    {pages: pages})
 })
 
 //CREATE
@@ -35,6 +36,14 @@ router.get('/new', async (req, res) => {
 //PUT
 
 //SHOW
+
+router.get('/:id', async (req, res) => {
+    toDo.findById(req.params.id, (error, foundList) => {
+        res.render('todo/show.ejs', {
+            toDo: foundList
+        })
+    })
+})
 
 //DELETE
 
