@@ -29,22 +29,11 @@ router.get('/new', async (req, res) => {
     {pages: pages})
 })
 
-
-//CREATE
-
 router.post('/newtask', async(req, res) =>{
     ToDo.create(req.body, (error)=>
     res.redirect('/todo')
     )
-
-    
 })
-
-//EDIT/UPDATE
-
-//PUT
-
-//SHOW
 
 router.get('/:id', async (req, res) => {
     toDo.findById(req.params.id, (error, foundList) => {
@@ -54,6 +43,5 @@ router.get('/:id', async (req, res) => {
     })
 })
 
-//DELETE
 
 module.exports = router

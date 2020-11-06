@@ -59,51 +59,51 @@ app.use('/todo', toDoController)
 //___________________
 //localhost:3000
 app.get('/', (req, res) => {
-    toDo.find({}, (error, allTasks)=>{
+    toDo.find({}, (error, allTasks) => {
     res.render('../views/pages/index.ejs', {
         tasks: allTasks
-
     })
     })
 })
 
-app.get('/new', (req, res) =>{
+//NEW
+app.get('/new', (req, res) => {
     res.render('../views/pages/new.ejs')
-    
 })
 
-app.post("/newtask", (req, res)=>{
+//CREATE
+app.post("/newtask", (req, res) => {
     console.log(req.body)
-    toDo.create(req.body, (error, createdTask)=>{
+    toDo.create(req.body, (error, createdTask) => {
         if (error){
             console.log(error)
         }
         else{
            res.redirect("/") 
         }
-        
     })
-    
 })
 
-app.get("/edit/:id", (req, res)=>{
-    toDo.findById(req.params.id, (error, foundTask)=>{
+//EDIT
+app.get("/edit/:id", (req, res) => {
+    toDo.findById(req.params.id, (error, foundTask) => { 
         res.render("../views/pages/edit.ejs", {
             editTask: foundTask
         } )
     })
 })
 
-app.put("/edittask/:id",  (req, res)=>{
+//UPDATE
+app.put("/edittask/:id",  (req, res) => {
     toDo.findByIdAndUpdate(
         req.params.id,
         req.body,
-        (error, updatedModel)=>{
+        (error, updatedModel) => {
             res.redirect("/")
         })
-
     })
 
+//SHOW
 app.get("/task/:id", (req, res)=>{
     toDo.findById(req.params.id, (error, singleTask)=>{
         res.render("../views/pages/show.ejs", {
@@ -112,6 +112,7 @@ app.get("/task/:id", (req, res)=>{
     })
 })
 
+//DELETE
 app.delete("/delete/:id", (req, res) =>{
     toDo.findByIdAndRemove(req.params.id, (error,deletedTask) =>{
         res.redirect("/")
