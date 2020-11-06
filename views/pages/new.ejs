@@ -9,6 +9,15 @@
 <body>
     <div class="container">
         <h1>Create a New List</h1>
+        <form action="/newtask" method="POST">
+            <p>List Title: </Title><input type="text" name="title"></p>
+            <p>Task: <input type="text" name="task"></p>
+            <p>Is it completed?</p>
+            <p><input type="radio" name="completed" value="true">Yes
+          <input type="radio" name="completed" value="false">No</p>
+            <button type="submit" value="Add Task">Add Task</button>
+
+        </form>
     </div>
 </body>
 </html>
