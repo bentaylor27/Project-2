@@ -7,3 +7,5 @@ The purpose of this application is for the user to compile multiple "to-do" list
 Technologies included in this full-stack appication are as listed above, utilizing the basic concepts of a CRUD app and the 7 RESTful routes that go along with it. This was meant to be user-friendly and easy to navigate, as well as accessible across multiple devices. 
 
 Unsolved problems: In addition to improving the basic CSS of the pages, improvements could be made within the New and Show pages to provide more information, as well as making the cards in the Index more readable. The initial intention of the application was to provide details to mutliple lists in one place, and while that was successful, bigger lists are not easily included at this time. There were problems in including the local date and time, as these were new features added towards the end. In moving forward, these are all updates that can and will be made to make for a much improved user experience.
+
+To-do with to-do: fix createdAt, CSS, bigger markdown for multiple tasks, working controller, sign-up/sign-in functionality
