@@ -56,7 +56,11 @@
       <div class="card">
         <h3><a href="/task/<%=task._id%>"><%= task.title %></a></h3>
         <h4><%= task.task %></h4>
-        <h5><%= task.completed %></h5>
+        <% if(task.completed === true) { %>
+            The task is <strong style="color:greenyellow;">completed</strong>!
+        <% } else { %>
+            It is <strong style="color:red;">NOT</strong> completed.
+        <% } %>
         <h5 datetime="YYYY-MM-DD"><%= task.createdAt %></h5>
         <a class="button" href="/edit/<%=task._id%>">Edit</a>
         <form action="/delete/<%=task._id%>?_method=DELETE" method="POST">
