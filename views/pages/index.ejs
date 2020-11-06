@@ -6,73 +6,75 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>To-Do App</title>
     <style>
-        .row{
+        .row {
             display: inline-block;
         }
-        .column{
+        .column {
             display: inline-block;
         }
-        .card{
+        .card {
             display: inline-block ;
             width: 300px;
             height: 300px;
             margin-left: 100px;
-
-
         }
-        h3, h4, h5{
+        h3, h4, h5{ 
             margin-left: 50px;
         }
         .button {
-    display: block;
-    width: 115px;
-    height: 45px;
-    margin-top: 10px;
-    margin-left: 85px;
-    background: #4E9CAF;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    line-height: 25px;
-}
-
+            display: block;
+            width: 115px;
+            height: 45px;
+            margin-top: 10px;
+            margin-left: 85px;
+            background: #4E9CAF;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            line-height: 25px;
+        }
+        .new {
+            background-color: red;
+            color: black;
+        }
+        footer {
+            background-color: red;
+            margin-top: 400px;
+        }
+        body {
+            background-color: grey;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Ben's To-Do App</h1>
-        <a style="background-color: red;" href="/new">Create a New List</a>
-        
-        <footer style="background-color: red;">Created 2020 by Ben Taylor</footer>
+        <a class="new" href="/new">Create a New List</a>
+        <h2>All Tasks</h2>
+        <div>
+            <% for (let task of tasks) { %>
+            <div class="row">
+            <div class="column">
+            <div class="card">
+                <h3><a href="/task/<%=task._id%>"><%= task.title %></a></h3>
+                <h4><%= task.task %></h4>
+                <% if(task.completed === true) { %>
+                    The task is <strong style="color:greenyellow;">completed</strong>!
+                <% } else { %>
+                    It is <strong style="color:red;">NOT</strong> completed.
+                <% } %>
+                <h5 datetime="YYYY-MM-DD"><%= task.createdAt %></h5>
+                <a class="button" href="/edit/<%=task._id%>">Edit</a>
+                <form action="/delete/<%=task._id%>?_method=DELETE" method="POST">
+                    <input class="button" type="submit" value="Delete"/>
+                </form>
+            </div>
+            </div>
+        </div>
+        <%  } %></div>
+        <footer>Created 2020 by Ben Taylor</footer>
     </div>
-
-    <h1>All Tasks</h1>
-    <div>
-    <% for (let task of tasks) { %>
-     <div class="row">
-    <div class="column">
-      <div class="card">
-        <h3><a href="/task/<%=task._id%>"><%= task.title %></a></h3>
-        <h4><%= task.task %></h4>
-        <% if(task.completed === true) { %>
-            The task is <strong style="color:greenyellow;">completed</strong>!
-        <% } else { %>
-            It is <strong style="color:red;">NOT</strong> completed.
-        <% } %>
-        <h5 datetime="YYYY-MM-DD"><%= task.createdAt %></h5>
-        <a class="button" href="/edit/<%=task._id%>">Edit</a>
-        <form action="/delete/<%=task._id%>?_method=DELETE" method="POST">
-            <input class="button" type="submit" value="Delete"/>
-          </form>
-        
-      </div>
-    </div>
-  </div>
-
-   <%  } %></div>
-
-   
 </body>
 </html>
