@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const toDo = require('./models/todo.js')
+const { modelName } = require('./models/todo.js')
 
 // Config
 const mongoURI = 'mongodb://localhost:27017/' + 'tasks'
@@ -16,3 +17,4 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'))
 db.on('connected', () => console.log('mongo connected: ', mongoURI))
 db.on('disconnected', () => console.log('mongo disconnected'))
 
+module.exports=db;

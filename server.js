@@ -75,7 +75,13 @@ app.get('/new', (req, res) =>{
 app.post("/newtask", (req, res)=>{
     console.log(req.body)
     toDo.create(req.body, (error, createdTask)=>{
-        res.redirect("/")
+        if (error){
+            console.log(error)
+        }
+        else{
+           res.redirect("/") 
+        }
+        
     })
     
 })

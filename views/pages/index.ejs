@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>To-Do App</title>
+    <style>
+        .row{
+            display: inline-block;
+        }
+        .column{
+            display: inline-block;
+        }
+        .card{
+            display: inline-block ;
+            width: 300px;
+            height: 300px;
+            margin-left: 100px;
+
+
+        }
+        h3, h4, h5{
+            margin-left: 50px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -15,12 +34,22 @@
     </div>
 
     <h1>All Tasks</h1>
+    <div>
     <% for (let task of tasks) { %>
-    <%= task.title %>
-    <%= task.task %>
-    <%= task.completed %>
-    <%= task.createdAt %>
+     <div class="row">
+    <div class="column">
+      <div class="card">
+        <h3><%= task.title %></h3>
+        <h4><%= task.task %></h4>
+        <h5><%= task.completed %></h5>
+        <a href="/edit">Edit</a>
+        <a href="/delete">Delete</a>
+      </div>
+    </div>
+  </div>
 
-   <%  } %>
+   <%  } %></div>
+
+   
 </body>
 </html>
