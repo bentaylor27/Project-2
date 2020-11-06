@@ -86,7 +86,37 @@ app.post("/newtask", (req, res)=>{
     
 })
 
+app.get("/edit/:id", (req, res)=>{
+    toDo.findById(req.params.id, (error, foundTask)=>{
+        res.render("../views/pages/edit.ejs", {
+            editTask: foundTask
+        } )
+    })
+})
 
+app.put("/edittask/:id",  (req, res)=>{
+    toDo.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        (error, updatedModel)=>{
+            res.redirect("/")
+        })
+
+    })
+
+app.get("/task/:id", (req, res)=>{
+    toDo.findById(req.params.id, (error, singleTask)=>{
+        res.render("../views/pages/show.ejs", {
+            showTask: singleTask
+        })
+    })
+})
+
+app.delete("/delete/:id", (req, res) =>{
+    toDo.findByIdAndRemove(req.params.id, (error,deletedTask) =>{
+        res.redirect("/")
+    })
+})
 
 
 //___________________

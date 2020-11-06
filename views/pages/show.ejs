@@ -8,7 +8,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>List XYZ</h1>
+        <h1>List <%=showTask.title%></h1>
+        <h2>Task Name! <%=showTask.task %></h2>
+        <h2>Time Created: <%=showTask.createdAt %></h2>
+        <h3>Is the task completed?</h3>
+        <% if(showTask.completed === true) { %>
+            The task is <strong style="color:greenyellow;">completed</strong>!
+        <% } else { %>
+            It is <strong style="color:red;">NOT</strong> completed.
+        <% } %>
+
+        
+
     </div>
 </body>
 </html>

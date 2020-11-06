@@ -23,6 +23,21 @@
         h3, h4, h5{
             margin-left: 50px;
         }
+        .button {
+    display: block;
+    width: 115px;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 85px;
+    background: #4E9CAF;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+
     </style>
 </head>
 <body>
@@ -39,11 +54,15 @@
      <div class="row">
     <div class="column">
       <div class="card">
-        <h3><%= task.title %></h3>
+        <h3><a href="/task/<%=task._id%>"><%= task.title %></a></h3>
         <h4><%= task.task %></h4>
         <h5><%= task.completed %></h5>
-        <a href="/edit">Edit</a>
-        <a href="/delete">Delete</a>
+        <h5 datetime="YYYY-MM-DD"><%= task.createdAt %></h5>
+        <a class="button" href="/edit/<%=task._id%>">Edit</a>
+        <form action="/delete/<%=task._id%>?_method=DELETE" method="POST">
+            <input class="button" type="submit" value="Delete"/>
+          </form>
+        
       </div>
     </div>
   </div>
