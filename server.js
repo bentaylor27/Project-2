@@ -59,15 +59,24 @@ app.use('/todo', toDoController)
 //___________________
 //localhost:3000
 app.get('/', (req, res) => {
-    res.redirect('/todo')
+    toDo.find({}, (error, allTasks)=>{
+    res.render('../views/pages/index.ejs', {
+        tasks: allTasks
+
+    })
+    })
 })
 
 app.get('/new', (req, res) =>{
     res.render('../views/pages/new.ejs')
-} )
+    
+})
 
 app.post("/newtask", (req, res)=>{
     console.log(req.body)
+    toDo.create(req.body, (error, createdTask)=>{
+        res.redirect("/")
+    })
     
 })
 

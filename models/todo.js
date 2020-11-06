@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 
 const toDoSchema = new mongoose.Schema({
     title: {type: String, required: true},
@@ -7,6 +8,8 @@ const toDoSchema = new mongoose.Schema({
     completed: {type: Boolean, required: true}
 })
 
-const toDo = mongoose.model("ToDo", toDoSchema)
+const toDo = mongoose.model("toDo", toDoSchema)
+
 
 module.exports = toDo
+ 

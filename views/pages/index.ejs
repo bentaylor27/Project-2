@@ -10,17 +10,17 @@
     <div class="container">
         <h1>Ben's To-Do App</h1>
         <a style="background-color: red;" href="/new">Create a New List</a>
-        <ul style="font-weight: bold;">To-Do Lists
-            <% for (let toDo of pages) { %>
-                <li>
-                    <a href="/models/todo.js">
-                        <%= toDo.title %>
-                    <button type="button" name="Edit">Edit</button>
-                    <button type="button" name="Delete">Delete</button>
-                </li>
-            <% } %>
-        </ul>
+        
         <footer style="background-color: red;">Created 2020 by Ben Taylor</footer>
     </div>
+
+    <h1>All Tasks</h1>
+    <% for (let task of tasks) { %>
+    <%= task.title %>
+    <%= task.task %>
+    <%= task.completed %>
+    <%= task.createdAt %>
+
+   <%  } %>
 </body>
 </html>
