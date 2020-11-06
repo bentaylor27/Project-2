@@ -61,6 +61,10 @@ app.get('/', (req, res) => {
     res.redirect('/todo')
 })
 
+app.get('/new', (req, res) =>{
+    res.render('../views/pages/new.ejs')
+} )
+
 
 //___________________
 //Listener
