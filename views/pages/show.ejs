@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Show</title>
+    <title>Show List</title>
+    <style>
+        body {
+            background-color: grey;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>List <%=showTask.title%></h1>
-        <h2>Task Name! <%=showTask.task %></h2>
-        <h2>Time Created: <%=showTask.createdAt %></h2>
-        <h3>Is the task completed?</h3>
+        <p>Task Name! <%=showTask.task %></p>
+        <p>Time Created: <%=showTask.createdAt %></p>
+        <p>Is the task completed?</p>
         <% if(showTask.completed === true) { %>
             The task is <strong style="color:greenyellow;">completed</strong>!
         <% } else { %>
             It is <strong style="color:red;">NOT</strong> completed.
         <% } %>
-
-        
-
     </div>
+    <button type="button" name="button">
+        <a href="/">Back to Index</a>
+    </button>
 </body>
 </html>
